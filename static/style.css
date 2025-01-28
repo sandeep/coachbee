@@ -1,0 +1,35 @@
+/* Form container styling */
+#settings-container {
+    /* Add a subtle animation for a more dynamic feel */
+    transition: all 0.3s ease-in-out; 
+  }
+  
+  /* Hide the settings with a slide-up animation */
+  #settings-container.hidden { 
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(-20px); 
+  }
+  
+  /* Style the select dropdowns */
+  .form-select {
+    appearance: none; /* Remove default appearance */
+    background-color: #fff;
+    border: 1px solid #d1d5db; /* Add a border */
+    border-radius: 0.25rem; /* Add rounded corners */
+    padding: 0.5rem 1rem; /* Add padding */
+    font-size: 1rem; 
+    line-height: 1.5; 
+    width: 100%; 
+  }
+  
+  /* Add a dropdown arrow */
+  .form-select:after {
+    content: '\25BC'; 
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    pointer-events: none; 
+  }

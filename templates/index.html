@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Coach 🐝</title> 
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <section class="hero bg-blue-500 text-white py-12">
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl font-bold mb-4">Coach 🐝</h1> 
+      <p class="text-lg">Motivational messages that sting a little. <BR> Unleash your inner 🐝🐝🐝 </p>
+    </div>
+  </section>
+
+  <div class="container mx-auto p-8">
+    <div id="settings-container" class="mb-8"> 
+      <form id="preference-form" method="POST" action="/process_form" class="bg-white p-6 rounded-lg shadow-md">
+        <div class="mb-4">
+          <h2 class="text-l font-semibold mb-2">Exercise Type</h2>
+          <label class="inline-flex items-center">
+            <input type="radio" name="exercise_type" value="running" checked class="form-radio">
+            <span class="ml-2">Running</span>
+          </label>
+          <label class="inline-flex items-center ml-6">
+            <input type="radio" name="exercise_type" value="weightlifting" class="form-radio">
+            <span class="ml-2">Weightlifting</span>
+          </label>
+        </div>
+
+        <div class="mb-4">
+          <h2 class="text-l font-semibold mb-2">Motivation Style</h2>
+          <select name="motivation_style" class="form-select">
+            <option value="chill"> 😎 Chill</option> 
+            <option value="medium"> 🤔 Medium</option> 
+            <option value="hot"> 🔥 Hot</option> 
+            <option value="extra spicy"> 🥵 Extra Spicy</option> 
+          </select>
+        </div>
+
+        <div class="mb-4">
+          <h2 class="text-l font-semibold mb-2">Your Heroes (comma-separated)</h2>
+          <input type="text" name="heroes" placeholder="e.g. Goggins, Oprah" class="form-input">
+        </div>
+
+        <div class="mb-4" id="voice-select-id">
+          <h2 class="text-l font-semibold mb-2">Voice Preference</h2>
+          <select name="voice" id="voice-select" class="form-select">
+            <option value="">Select a Voice</option>
+          </select>
+          <div id="no-voices-message" class="text-red-500 hidden">No other voices available.</div> 
+        </div>
+        </div>
+      </form>
+    </div>
+    <div class="flex flex-col items-center">
+    <button id="start-stop-button" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 text-4xl rounded">
+      Start Workout!
+    </button>
+
+    <div class="mt-8">
+      <div class="flex items-center mb-4">
+        <h2 class="text-center text-xl font-semibold mr-4">Timer:</h2>
+        <span id="timer" class="text-2xl font-bold">00:00:00</span>
+      </div>
+      <div id="message-display" class="text-lg font-medium p-4 rounded bg-white shadow-md"></div> 
+      <div id="countdown" class="text-xs text-center text-gray-500 mt-2"></div>
+
+    </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
